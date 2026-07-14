@@ -3,5 +3,8 @@ name = "enterprise-iam"
 version = "0.1.0"
 description = "Enterprise Identity and Access Management (IAM) service built with FastAPI."
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = []
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "fastapi>=0.139.0",
+    "uvicorn[standard]>=0.51.0",
+]
