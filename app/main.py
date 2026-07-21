@@ -2,18 +2,19 @@ from __future__ import annotations
 
 from fastapi import FastAPI
 
+from app.api.health import router as health_router
+from app.core.config import settings
+
 def create_application() -> FastAPI:
     """Create and configure the FastAPI application."""
     
     application = FastAPI(
-        title="Enterprise IAM",
-        description=(
-            "Enterprise Identity and Access Management (IAM) "
-            "service providing authentication, authorization, "
-            "and user management APIs."
-        ),
-        version="0.1.0",
+        title=settings.app_name,
+        description=settings.app_description,
+        version=settings.app_version,
     )
+    
+    application.include_router(health_router)
     
     return application
 
